@@ -13,6 +13,7 @@ h = 1e-7
 
 def dfa(f, x, h):
     return (f(x + h) - f(x)) / h
+    return
 
 #Newtonsverfahren
 
@@ -59,6 +60,21 @@ while i < 100:
     if funcix(x) < 0.00001:
             print("the solution is: x0= ",x, "j(x): ",funcix(x), "iteration= ", i)
             break
-
-
+      
+def newton(x, func):
+    i = 0 
+    while i < 100:
+            x = x - (func(x)/(dfa(func, x, h)))
+            i += 1
+            if func(x) < 0.00001:
+                print("the solution is: x0= ", x , "function(x0): ", func(x), "iteration= ", i)
+                break
+x = 2                
+newton(x, funcfx)
+x = 1.875
+newton(x, funcgx)
+x = 0.65
+newton(x, funchx)
+x = 1.25
+newton(x, funcix)
     
